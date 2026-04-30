@@ -9,6 +9,8 @@ jobs:
     with:
       image-name: ${{ vars.DOCKER_IMAGE_NAME }}
       image-tag: ${{ github.ref_name }}
+      k3s-server-public-ip: ${{ vars.K3S_SERVER_PUBLIC_IP }}
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      EA2_SSH_PRIVATE_KEY: ${{ secrets.EA2_SSH_PRIVATE_KEY }}

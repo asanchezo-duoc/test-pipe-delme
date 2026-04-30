@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: juanito-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: juanito
+  template:
+    metadata:
+      labels:
+        app: juanito
+    spec:
+      containers:
+        - name: juanito
+          image: asanchezoduoc/delme-test-plz:latest
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: juanito-svc
+spec:
+  type: NodePort
+  selector:
+    app: juanito
+  ports:
+    - port: 3000
+      nodePort: 30090
