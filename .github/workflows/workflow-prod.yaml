@@ -1,0 +1,14 @@
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  remote-workflow:
+    uses: asanchezo-duoc/AUY1104-SharedWorkflows/.github/workflows/deploy-api.yaml@main
+    with:
+      image-name: ${{ github.ref_name }}
+      image-tag: ${{ github.ref_name }}
+    secrets:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

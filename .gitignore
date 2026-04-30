@@ -141,3 +141,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+Guia-local-Docker-AUY1104.pdf
+guia-local-docker.html
