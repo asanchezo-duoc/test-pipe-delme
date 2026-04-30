@@ -6,9 +6,11 @@ on:
 jobs:
   remote-workflow:
     uses: asanchezo-duoc/AUY1104-SharedWorkflows/.github/workflows/deploy-api.yaml@main
+    # Variables del repo (Settings → Secrets and variables → Actions → Variables)
     with:
       image-name: ${{ vars.DOCKER_IMAGE_NAME }}
       image-tag: ${{ github.ref_name }}
+      # Input del reusable workflow; valor tomado de variable de este repo, no del SharedWorkflows
       k3s-server-public-ip: ${{ vars.K3S_SERVER_PUBLIC_IP }}
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
